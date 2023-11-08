@@ -76,9 +76,4 @@ lipidomics <- full_join(
 
 readr::write_csv(lipidomics, here::here("data/lipidomics.csv"))
 
-# Ignore raw-data
-usethis::use_git_ignore("data-raw/nmr-omics/")
-
-r3::check_project_setup_advanced()
-
 
