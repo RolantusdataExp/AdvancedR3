@@ -5,13 +5,16 @@ Version: 0.0.1
 Imports:
     dplyr,
     fs,
+    ggplot2,
     here,
     knitr,
+    quarto,
     readr,
     readxl,
     rmarkdown,
     snakecase,
     stringr,
+    tarchetypes,
     targets,
     tidyr,
     usethis
