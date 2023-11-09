@@ -8,22 +8,26 @@ editor:
       canonical: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup}
+library(tidyverse)
+source(here::here("R/functions.R"))
+lipidomics <- read_csv(here::here("data/lipidomics.csv"))
+```
+
+## Basic statistics
+
+```{r basic-stats}
+lipidomics %>%
+  group_by(metabolite) %>%
+  summarise(across(value, list(mean = mean, sd = sd))) %>%
+  mutate(across(where(is.numeric), ~ round(.x, digits = 1)))
+```
+
+```{R setup }
+descriptive_stats(lipidomics)
 ```
 
 ```{r}
-# Code chunk
-```
-
-```{r}
+source("R/functions.R")
 
 ```
-
-## This is poorly formatted
-
--   This is item 1
--   This is item 2
--   This is item 3
--   This is item 4
-
