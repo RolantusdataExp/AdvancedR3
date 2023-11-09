@@ -28,6 +28,5 @@ descriptive_stats(lipidomics)
 ```
 
 ```{r}
-source("R/functions.R")
 
 ```
