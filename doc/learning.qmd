@@ -20,7 +20,7 @@ lipidomics <- tar_read(lipidomics)
 ## results
 
 ```{r}
-targets::tar_read(df_stats_by_metabolite) %>% 
+targets::tar_read(df_stats_by_metabolite) %>%
   mutate(MeanSD = glue::glue("{value_mean} ({value_sd})")) %>%
   select(Metabolite = metabolite, `Mean SD` = MeanSD) %>%
   knitr::kable(caption = "Descriptive statistics of the metabolites.")
@@ -28,4 +28,40 @@ targets::tar_read(df_stats_by_metabolite) %>%
 
 ```{r}
 tar_read(fig_metabolite_distribution)
+```
+
+```{r Buidling a model!}
+log_reg_specs <- logistic_reg() %>%
+  set_engine("glm")
+log_reg_specs
+```
+
+```{r}
+lipidomics_wide <- lipidomics %>%
+  mutate(metabolite = snakecase::to_snake_case(metabolite)) %>%
+  pivot_wider(names_from = metabolite, values_from = value, values_fn = mean, names_prefix = "metabolite_")
+```
+
+```{r}
+lipidomics %>%
+  column_values_to_snake_case(metabolite)
+```
+
+```{r}
+metabolites_to_wider(lipidomics)
+```
+
+```{r}
+recipe(class ~ metabolite_lipid_ch_3_1 + age + gender, data = lipidomics_wide)
+```
+
+```{r}
+recipe(lipidomics_wide) %>%
+  update_role(metabolite_lipid_ch_3_1, age, gender, new_role = "predictor") %>%
+  update_role(class, new_role = "outcome") %>%
+  step_normalize(starts_with("metabolite_"))
+```
+
+```{r}
+recipe_specs <- lipidomics_wide %>% create_recipe_spec(metabolite_lipid_ch_3_1)
 ```
