@@ -22,3 +22,5 @@ Suggests:
     styler
 URL: https://github.com/RolantusdataExp/AdvancedR3
 BugReports: https://github.com/RolantusdataExp/AdvancedR3/issues
+Depends: 
+    tidyverse
