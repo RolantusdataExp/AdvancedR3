@@ -67,5 +67,32 @@ create_recipe_spec <- function(data, metabolite_variable) {
         recipes::step_normalize(tidyselect::starts_with("metabolite_"))
 }
 
+#' Create model
+#'
+#' @param model_specs is the model specs
+#' @param recipe_specs recipe specs
+#'
+#' @return workflow object
+#' @export
+#'
+#' @examples
+create_model_workflow = function(model_specs, recipe_specs) {
+    workflows::workflow() %>%
+        workflows::add_model(model_specs) %>%
+        workflows::add_recipe(recipe_specs)
+}
 
+#' Tidy model output
+#'
+#' @param workflow_fitted_model
+#'
+#' @return Something super exciting!
+#' @export
+#'
+#' @examples
+tidy_model_output = function(workflow_fitted_model) {
+    workflow_fitted_model %>%
+        workflows::extract_fit_parsnip() %>%
+        broom::tidy(exponentiate = TRUE)
+}
 
