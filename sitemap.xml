@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/RolantusdataExp/AdvancedR3/doc/learning.html</loc>
-    <lastmod>2023-11-10T13:01:53.373Z</lastmod>
+    <lastmod>2023-11-10T13:15:44.711Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/RolantusdataExp/AdvancedR3/TODO.html</loc>
-    <lastmod>2023-11-10T13:01:52.277Z</lastmod>
+    <lastmod>2023-11-10T13:15:44.147Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/RolantusdataExp/AdvancedR3/LICENSE.html</loc>
+    <lastmod>2023-11-10T13:15:43.615Z</lastmod>
   </url>
 </urlset>
