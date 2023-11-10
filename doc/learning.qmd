@@ -7,9 +7,9 @@ author:
     affiliations:
       - name: BMB 
         address: Street 10
-        city: City
-        postal-code: 5220
-output: html
+        city: Odense
+        postal-code: 5200
+format: html
 editor:
     markdown: 
       wrap: 72
