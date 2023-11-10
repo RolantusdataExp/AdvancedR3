@@ -1,7 +1,7 @@
 ---
 title: "Draft R Markdown document"
 author:
-  - name: Peter
+  - name: Peter Jakobsgaard
     orcid: 0000-0001-9131-7932
     email: Pete@sdu.dk
     affiliations:
@@ -10,10 +10,6 @@ author:
         city: Odense
         postal-code: 5200
 format: html
-editor:
-    markdown: 
-      wrap: 72
-      canonical: true
 ---
 
 ```{r setup}
