@@ -1,7 +1,15 @@
 ---
 title: "Draft R Markdown document"
-author: "Peter Jakobsgaard"
-output: html_document
+author:
+  - name: Peter
+    orcid: 0000-0001-9131-7932
+    email: Pete@sdu.dk
+    affiliations:
+      - name: BMB 
+        address: Street 10
+        city: City
+        postal-code: 5220
+output: html
 editor:
     markdown: 
       wrap: 72
