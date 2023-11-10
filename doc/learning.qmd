@@ -51,9 +51,16 @@ lipidomics %>%
     right_join(model_estimates, by = "term")
 ```
 
-```{r}
+## Figure of model estimate
 
+```{r}
+model_estimates <- tar_read(df_model_estimates)
 ```
 
 ```{r}
+plot_estimates(model_estimates)
+```
+
+```{r}
+tar_read(fig_model_estimates)
 ```

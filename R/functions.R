@@ -158,13 +158,28 @@ add_original_metabolite_names = function(model_results, data) {
 #' @examples
 calculate_estimates <- function(data){
     data %>%
-        column_values_to_snake_case(metabolite) %>%
-        dplyr::group_split(metabolite) %>%
-        purrr::map(metabolites_to_wider) %>%
+        split_by_metabolite() %>%
         purrr::map(generate_model_results) %>%
         purrr::list_rbind() %>%
         dplyr::filter(stringr::str_detect(term, "metabolite_")) %>%
         add_original_metabolite_names(data)
 }
 
+#' Title Function for plotting estimates of all metabolites
+#'
+#' @param results estimates of model
+#'
+#' @return object
+#'
+#'
+#'
+plot_estimates <- function(results) {
+    results %>%
+        ggplot2::ggplot(aes(
+            x = estimate,
+            y = metabolite,
+            xmin = estimate - std.error,
+            xmax = estimate + std.error
+        )) + ggplot2::geom_pointrange() + ggplot2::coord_fixed(xlim = c(0,5))
+}
 
